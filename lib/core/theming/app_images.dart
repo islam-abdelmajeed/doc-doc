@@ -6,5 +6,6 @@ class AppImages {
 
   //Images
   static const onboardingDoctor = 'assets/images/onboarding_doctor.png';
+  static const homeBluePattern = 'assets/images/home_blue_pattern.png';
   //Icons
 }
