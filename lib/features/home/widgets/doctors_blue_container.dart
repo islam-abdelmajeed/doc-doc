@@ -1,5 +1,6 @@
 import 'package:doc_doc/core/theming/app_images.dart';
 import 'package:doc_doc/core/theming/colors.dart';
+import 'package:doc_doc/core/theming/size_boxes.dart';
 import 'package:doc_doc/core/theming/styles.dart';
 import 'package:doc_doc/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
@@ -32,13 +33,14 @@ class DoctorsBlueContainer extends StatelessWidget {
                     style: TextStyles.font18WhiteMedium,
                     textAlign: TextAlign.start,
                   ),
+                  8.heightBox,
                   Expanded(
                     child: AppTextButton(
                       buttonText: "Find Nearby",
                       textStyle: TextStyles.font12BlueRegular,
                       onPressed: () {},
                       backgroundColor: Colors.white,
-                      buttonWidth: 100.w,
+                      buttonWidth: 120.w,
                       borderRadius: 48.0,
                     ),
                   ),
