@@ -1,3 +1,6 @@
+import 'package:doc_doc/core/helpers/constants.dart';
+import 'package:doc_doc/core/helpers/shared_pref_helper.dart';
+import 'package:doc_doc/core/networking/dio_factory.dart';
 import 'package:doc_doc/features/login/data/models/login_request_body.dart';
 import 'package:doc_doc/features/login/data/repo/login_repo.dart';
 import 'package:doc_doc/features/login/logic/cubit/login_state.dart';
@@ -19,8 +22,16 @@ class LoginCubit extends Cubit<LoginState> {
       password: passwordController.text,
     ));
     response.when(
-      success: (loginResponse) => emit(LoginState.success(loginResponse)),
+      success: (loginResponse) async {
+        await saveToken(loginResponse.userData?.token ?? '');
+        emit(LoginState.success(loginResponse));
+      },
       failure: (error) => emit(LoginState.failure(error: error.apiErrorModel.message ?? "Something went wrong")),
     );
+  }
+
+  Future<void> saveToken(String token) async {
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }

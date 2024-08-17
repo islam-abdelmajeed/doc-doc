@@ -11,8 +11,7 @@ class LoginResponse {
 
   LoginResponse({this.message, this.userData, this.status, this.code});
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
 }
 
 @JsonSerializable()
@@ -24,6 +23,5 @@ class UserData {
     this.token,
     this.userName,
   });
-  factory UserData.fromJson(Map<String, dynamic> json) =>
-      _$UserDataFromJson(json);
+  factory UserData.fromJson(Map<String, dynamic> json) => _$UserDataFromJson(json);
 }
