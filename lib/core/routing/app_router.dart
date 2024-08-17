@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/sign_up/ui/sign_up_screen.dart';
 
 class AppRouter {
-  Route generateRoute(RouteSettings settings) {
+  Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.onboarding:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
@@ -30,12 +30,7 @@ class AppRouter {
       case Routes.home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
-        return MaterialPageRoute(
-            builder: (_) => Scaffold(
-                  body: Center(
-                    child: Text('No route defined for ${settings.name}'),
-                  ),
-                ));
+        return null;
     }
   }
 }
