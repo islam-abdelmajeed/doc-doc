@@ -1,6 +1,7 @@
 import 'package:doc_doc/core/di/dependency_injection.dart';
 import 'package:doc_doc/core/routing/routes.dart';
 import 'package:doc_doc/features/home/home_screen.dart';
+import 'package:doc_doc/features/home/logic/home_cubit.dart';
 import 'package:doc_doc/features/login/logic/cubit/login_cubit.dart';
 import 'package:doc_doc/features/login/login_screen.dart';
 import 'package:doc_doc/features/onboarding/onboarding_screen.dart';
@@ -18,17 +19,21 @@ class AppRouter {
       case Routes.login:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => getIt<LoginCubit>(),
+                  create: (context) => LoginCubit(getIt()),
                   child: LoginScreen(),
                 ));
       case Routes.signUp:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => getIt<SignUpCubit>(),
+                  create: (context) => SignUpCubit(getIt()),
                   child: const SignUpScreen(),
                 ));
       case Routes.home:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => HomeCubit(getIt())..getSpecialization(),
+                  child: const HomeScreen(),
+                ));
       default:
         return null;
     }

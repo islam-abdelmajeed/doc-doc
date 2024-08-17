@@ -1,5 +1,8 @@
 import 'package:doc_doc/core/theming/size_boxes.dart';
+import 'package:doc_doc/features/home/logic/home_cubit.dart';
+import 'package:doc_doc/features/home/logic/home_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/doctors_blue_container.dart';
@@ -7,6 +10,7 @@ import 'widgets/doctors_list_view.dart';
 import 'widgets/doctors_speciality_list_view.dart';
 import 'widgets/doctors_speciality_see_all.dart';
 import 'widgets/home_top_bar.dart';
+import 'widgets/specialization_and_doctors_bloc_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,8 +30,7 @@ class HomeScreen extends StatelessWidget {
             16.heightBox,
             const DoctorsSpecialitySeeAll(),
             16.heightBox,
-            const DoctorsSpecialityListView(),
-            const DoctorsListView(),
+            const SpecializationAndDoctorsBlocBuilder(),
           ],
         ),
       )),
