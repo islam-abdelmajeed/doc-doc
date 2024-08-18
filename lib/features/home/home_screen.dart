@@ -1,11 +1,12 @@
 import 'package:doc_doc/core/theming/size_boxes.dart';
+import 'package:doc_doc/features/home/widgets/doctors_list/doctors_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/doctors_blue_container.dart';
-import 'widgets/doctors_speciality_see_all.dart';
+import 'widgets/speciality_see_all.dart';
 import 'widgets/home_top_bar.dart';
-import 'widgets/specialization_and_doctors_bloc_builder.dart';
+import 'widgets/speciality_list/specialization_bloc_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,11 +22,21 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const HomeTopBar(),
-            const DoctorsBlueContainer(),
-            16.heightBox,
-            const DoctorsSpecialitySeeAll(),
-            16.heightBox,
-            const SpecializationAndDoctorsBlocBuilder(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const DoctorsBlueContainer(),
+                    16.heightBox,
+                    const SpecialitySeeAll(),
+                    16.heightBox,
+                    const SpecializationBlocBuilder(),
+                    8.heightBox,
+                    const DoctorsBlocBuilder(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       )),
