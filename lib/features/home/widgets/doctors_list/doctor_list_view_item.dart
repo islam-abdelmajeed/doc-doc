@@ -2,7 +2,7 @@ import 'package:doc_doc/features/home/data/models/specialization_response_model.
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/theming/styles.dart';
+import '../../../../core/theming/styles.dart';
 
 class DoctorListViewItem extends StatelessWidget {
   final Doctor doctor;
