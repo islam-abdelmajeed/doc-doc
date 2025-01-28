@@ -29,7 +29,7 @@ class DoctorsBlueContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Book and\nschedule with\nnearest doctor",
+                    "Book and\nschedule with\nnearest doctor.",
                     style: TextStyles.font18WhiteMedium,
                     textAlign: TextAlign.start,
                   ),
